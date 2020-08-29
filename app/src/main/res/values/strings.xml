@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Health Express</string>
+    <string name="action_1">OK</string>
+    <string name="action_2">Cancel</string>
+    <string name="content_description_media">The carrot is a root vegetable, usually orange in color, though purple, black, red, white, and yellow cultivars exist. They are a domesticated form of the wild carrot, Daucus carota, native to Europe and Southwestern Asia. The plant probably originated in Persia and was originally cultivated for its leaves and seeds.</string>
+    <string name="title">Carrot</string>
+    <string name="secondary_text">A Vegetable</string>
+    <string name="supporting_text">The carrot is a root vegetable, usually orange in color, though purple, black, red, white, and yellow cultivars exist. They are a domesticated form of the wild carrot, Daucus carota, native to Europe and Southwestern Asia. The plant probably originated in Persia and was originally cultivated for its leaves.</string>
 </resources>
