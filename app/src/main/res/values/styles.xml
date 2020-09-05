@@ -1,10 +1,34 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+<!--    <style name="Theme.HealthExpress" parent="Theme.MaterialComponents.DayNight">
+        &lt;!&ndash; Customize your theme here. &ndash;&gt;
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windHealthExpressightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+    </style>-->
+
+
+    <style
+        name="Widget.HealthExpress.BottomNavigationView"
+        parent="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface">
+        <item name="labelVisibilityMode">selected</item>
+        <item name="itemIconTint">@color/bottom_nav_item</item>
+        <item name="itemTextColor">@color/bottom_nav_item</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.HealthExpress.BottomNavigation</item>
     </style>
+
+    <style name="Widget.HealthExpress.SeekBar" parent="@style/Widget.AppCompat.SeekBar">
+        <item name="android:progressTint">@color/HealthExpress_yellow_500</item>
+        <item name="android:secondaryProgressTint">#99ffffff</item>
+        <item name="android:thumbTint">@color/HealthExpress_yellow_500</item>
+        <item name="android:progressDrawable">@drawable/seekbar_track</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
+
+
 
 </resources>

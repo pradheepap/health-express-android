@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "157955627231",
+    "firebase_url": "https://health-express-d9a1a.firebaseio.com",
+    "project_id": "health-express-d9a1a",
+    "storage_bucket": "health-express-d9a1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157955627231:android:90ebe2d6d7e3184401f16a",
+        "android_client_info": {
+          "package_name": "com.sg.healthexpress.main"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157955627231-2ctve2l8cvgujuitulc0qee4nj0osaih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJUwD_hKHwDU13NB9s5RtKbdoUr5x2wBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157955627231-2ctve2l8cvgujuitulc0qee4nj0osaih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
