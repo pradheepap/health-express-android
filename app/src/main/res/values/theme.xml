@@ -69,7 +69,7 @@
         <item name="colorPrimary">@color/HealthExpress_pink_500</item>
         <item name="colorSecondary">@color/HealthExpress_pink_500</item>
         <item name="colorPrimaryVariant">@color/HealthExpress_pink_600</item>
-        <item name="colorOnPrimary">#000</item>
+        <item name="colorOnPrimary">#FFF</item>
     </style>
 
     <style name="ThemeOverlay.HealthExpress.TransitionShapeAppearance.Small" parent="">

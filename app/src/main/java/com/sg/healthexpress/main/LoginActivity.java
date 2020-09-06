@@ -15,6 +15,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.sg.healthexpress.http.HttpRequestInstance;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -48,7 +50,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://api.nal.usda.gov/fdc/v1/foods/search?api_key=DEMO_KEY&query="+message;
+//        String url ="https://api.nal.usda.gov/fdc/v1/foods/search?api_key=DEMO_KEY&query="+message;
+        String url = "https://7y72io6h6d.execute-api.ap-southeast-1.amazonaws.com/dev/food/search/"+ message;
 /*        Map<String, String> params = new HashMap();
         params.put("query", "Cheddar cheese");
         JSONObject parameters = new JSONObject(params);*/
@@ -60,27 +63,31 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
 
-                            String jsonString = response.get("foods").toString();
-                            Log.d(jsonString, "Food Info.jsonString.");
+                            String dataJson = response.get("data").toString();
 
                             Gson gson = new Gson();
-                            Type foodInfoList = new TypeToken<ArrayList<FoodInfo>>() {
-                            }.getType();
+                            JsonElement json = gson.fromJson(dataJson, JsonElement.class);
+                            String jsonInString = gson.toJson(json);
+                            Log.d("Json", jsonInString);
 
-                            List<FoodInfo> foodInfo = gson.fromJson(jsonString, foodInfoList);
-                            Log.d(foodInfo.get(0).getIngredients(), "Food Info..");
+                            JsonObject jsonObject = json.getAsJsonObject();
+                            JsonElement foodsjson = jsonObject.get("foods");
+                            Log.d("foodsjson", foodsjson.toString());
 
-                            Log.d(foodInfo.get(0).getNutrientsList().toString(), "Food Info getNutrientsList..");
+                            FoodInfo foodInfo = gson.fromJson(foodsjson.toString(), FoodInfo.class);
+                            Log.d("foodInfo", foodInfo.toString());
 
+                            List<Nutrients> nutrientsList = foodInfo.getNutrientsList();
+                            String message = "";
+                            for (Nutrients nutrient : nutrientsList) {
+                                Log.d("getNutrientName", nutrient.getNutrientName());
+                                Log.d("getValue", nutrient.getValue());
+                                message += nutrient.getNutrientName() + ": " + nutrient.getValue() + "\n";
+                            }
 
-                            List<Nutrients> nutrientsList = foodInfo.get(0).getNutrientsList();
-                            Nutrients nutrient_1 = nutrientsList.get(0);
-                            Log.d(nutrient_1.toString(), "Food Info nutrient_1..");
-
-
-                            supportingTextView.setText("Ingredients: " + foodInfo.get(0).getIngredients());
-                            nutrientNameTextView.setText(nutrient_1.getNutrientName() + ": " + nutrient_1.getValue());
-                            nutrientValueTextView.setText("Description: " + foodInfo.get(0).getDescription());
+                            supportingTextView.setText("BrandOwner: " + foodInfo.getBrandOwner());
+                            nutrientNameTextView.setText("Ingredients: " + foodInfo.getIngredients());
+                            nutrientValueTextView.setText(message);
 
 
                         } catch (JSONException e) {
